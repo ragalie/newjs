@@ -19,6 +19,10 @@ class UnitTestGenerator < RubiGen::Base
         # Ensure jshoulda exists. TODO Should be moved to the newjs generator?
         m.directory 'test/assets'
         m.file 'test/assets/jshoulda.js', 'test/assets/jshoulda.js', :collision => :skip
+      elsif testing_lib == 'qunit'
+        m.directory 'test/assets'
+        m.file 'test/assets/testrunner.js', 'test/assets/testrunner.js', :collision => :skip
+        m.file 'test/assets/testsuite.css', 'test/assets/testsuite.css', :collision => :skip
       end
 
       # Create stubs
@@ -50,6 +54,7 @@ EOS
       #         "Default: none") { |options[:author]| }
       # opts.on("-v", "--version", "Show the #{File.basename($0)} version number and quit.")
       opts.on("--jshoulda", "Use jShoulda to write the test") { |v| options[:testing_lib] = 'jshoulda'}
+      opts.on("--qunit", "Use QUnit for tests") { |v| options[:testing_lib] = 'qunit'}
     end
     
     def extract_options

@@ -4,15 +4,49 @@
 <head>
   <title>JavaScript unit test file</title>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <% if testing_lib != 'qunit' %>
   <script src="../assets/jsunittest.js" type="text/javascript"></script>
+  <% end %>
   <% if testing_lib == 'jshoulda' %>
   <script src="../assets/jshoulda.js" type="text/javascript"></script>
   <% end %>
   <script src="../../src/<%= library_name %>.js" type="text/javascript"></script>
   
+  <% if testing_lib == 'qunit' %>
+  <link rel="stylesheet" href="../assets/testsuite.css" type="text/css" />
+  <% else %>
   <link rel="stylesheet" href="../assets/unittest.css" type="text/css" />
+  <% end %>
+
+  <% if testing_lib == 'qunit' %>
+  <script>
+  $(document).ready(function(){
+    
+module("Module A");
+
+test("Successful test", function() {
+  expect(1);
+  ok( true, "success" );
+});
+
+  });
+  </script>
+  <% end %>
 </head>
 <body>
+
+<% if testing_lib == 'qunit' %>
+<script type="text/javascript" src="assets/testrunner.js"></script>
+ <h1><%= name %>.js Unit Test</h1>
+ <h2 id="banner"></h2>
+ <h2 id="userAgent"></h2>
+
+ <ol id="tests"></ol>
+
+ <div id="main"></div>
+
+ <!-- Place HTML needed for tests here -->
+<% else %>
 
 <div id="content">
 
@@ -66,5 +100,7 @@ context("A context", {
 <% end %>
 // ]]>
 </script>
+
+<% end %>
 </body>
 </html>
