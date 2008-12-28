@@ -22,7 +22,8 @@ class FunctionalTestGenerator < RubiGen::Base
       elsif testing_lib == "qunit"
         m.directory 'test/assets'
         m.file 'test/assets/testrunner.js', 'test/assets/testrunner.js', :collision => :skip
-        m.file 'test/assets/testsuite.css', 'test/assets/testsuite.css', :collision => :skip
+        m.file 'test/assets/testsuite.css', 'test/assets/testsuite.css', :collision => :skip	
+        m.file 'test/assets/jquery.js', 'test/assets/jquery.js', :collision => :skip
       end
 
       # Create stubs

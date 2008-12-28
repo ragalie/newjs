@@ -14,6 +14,7 @@
   
   <% if testing_lib == 'qunit' %>
   <link rel="stylesheet" href="../assets/testsuite.css" type="text/css" />
+  <script src="../assets/jquery.js" type="text/javascript"></script>
   <% else %>
   <link rel="stylesheet" href="../assets/unittest.css" type="text/css" />
   <% end %>
@@ -36,7 +37,7 @@ test("Successful test", function() {
 <body>
 
 <% if testing_lib == 'qunit' %>
-<script type="text/javascript" src="assets/testrunner.js"></script>
+<script type="text/javascript" src="../assets/testrunner.js"></script>
  <h1><%= name %>.js Unit Test</h1>
  <h2 id="banner"></h2>
  <h2 id="userAgent"></h2>
